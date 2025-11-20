@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Payment — Mockup</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/2/23/COC-PHINMA.jpg" alt="logo" />
+      <div class="brand-text">Student Management</div>
+    </div>
+
+    <div class="search">
+      <input id="searchInput" placeholder="Search for Attendance Detail" aria-label="search" />
+      <button class="icon-btn" id="searchBtn">🔍</button>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">Student Management • Academic Activities</nav>
+
+  <main class="container">
+    <section class="card">
+<div class="section-header">
+  <h2>My Payment</h2>
+<div class="tools">
+  <img src="assets/icons/bookmark.svg" class="tool-icon">
+  <img src="assets/icons/play.svg" class="tool-icon">
+  <img src="assets/icons/info.svg" class="tool-icon">
+</div>
+
+</div>
+
+
+
+      <form id="paymentForm" class="payment-form" onsubmit="return false;">
+        <div class="form-row">
+          <div class="field">
+            <label for="paymentType">Payment Type <span class="required">*</span></label>
+            <select id="paymentType">
+              <option>Assessment Fee</option>
+              <option>Tuition</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="semester">Semester <span class="required">*</span></label>
+            <select id="semester">
+              <option>Y5S1 → SY 25-26 SEM I</option>
+              <option>Y5S2 → SY 25-26 SEM II</option>
+            </select>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn primary" id="showBtn">Show</button>
+            <button type="button" class="btn danger" id="clearBtn">Clear</button>
+          </div>
+        </div>
+
+     <div class="payment-options">
+  <label class="radio-wrapper">
+    <input type="radio" name="paytype" />
+    <span class="radio-label">Installment Payment</span>
+  </label>
+
+  <label class="radio-wrapper">
+    <input type="radio" name="paytype" checked />
+    <span class="radio-label">Full Payment</span>
+  </label>
+</div>
+
+
+        <div class="fees">
+          <div class="panel">
+            <table>
+              <thead>
+                <tr><th>Payment Type</th><th class="amount">Amount</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Total Amount</td><td class="amount" id="totalAmount">28,385.00</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel">
+            <table>
+              <thead>
+                <tr><th>Paid Amount</th><th class="amount">Amount</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Down Payment</td><td class="amount" id="downPayment">500.00</td></tr>
+                <tr class="summary"><td>Net Payable Amount</td><td class="amount" id="netAmount">27,885.00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="pay-area">
+          <button id="payOnline" class="pay-btn">Pay Online</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Simple modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Payment Summary</h3>
+      <div class="modal-body">
+        <p><strong>Payment Type:</strong> <span id="m_paymentType">Assessment Fee</span></p>
+        <p><strong>Semester:</strong> <span id="m_semester">Y5S1 → SY 25-26 SEM I</span></p>
+        <p><strong>Net Payable:</strong> ₱<span id="m_net">24,885.00</span></p>
+      </div>
+      <div class="modal-actions">
+        <button id="modalClose" class="btn">Close</button>
+        <button id="modalConfirm" class="btn primary">Proceed to Payment</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
