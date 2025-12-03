@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Official Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 450px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #000;
+            position: relative;
+        }
+
+        .buttons {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        .buttons button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .receipt {
+            position: relative;
+            z-index: 1;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .background-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px; /* bigger logo */
+            opacity: 0.20; /* faint watermark */
+            z-index: 0;
+        }
+
+        .center {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 27px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .subtitle {
+            font-size: 13px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .section {
+            margin-top: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .big-red {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .footer-text {
+            font-size: 10px;
+            text-align: center;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .line {
+            border-bottom: 1px solid black;
+            margin: 10px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media print {
+            body {
+                width: auto;
+                margin: 0;
+                padding: 0;
+                border: none;
+            }
+            .receipt {
+                border: none;
+                width: 100%;
+            }
+            .buttons {
+                display: none; /* hide buttons in print */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="buttons">
+    <button onclick="window.print()">Print</button>
+    <button id="download">Download PDF</button>
+</div>
+
+<div class="receipt">
+
+    <!-- Faint background logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/23/COC-PHINMA.jpg" class="background-logo">
+
+    <div class="center">
+        <div class="title">CAGAYAN DE ORO COLLEGE</div>
+        <div class="subtitle">PHINMA EDUCATION</div>
+        <div class="subtitle">Max Suniel St. Carmen, Cagayan de Oro City 9000, Philippines</div>
+        <div class="subtitle">Tel. # (088) 858-38-81 &nbsp; TIN: 000-551-034-000</div>
+
+        <h4>(EDUCATION)<br>EXEMPT<br>OFFICIAL RECEIPT</h4>
+    </div>
+
+    <div class="section">
+        <span class="label">Date:</span> September 18, 2023<br>
+        <span class="label">Name:</span> OLEMBERIO, KIANA L.<br>
+        <span class="label">Course:</span> BSIT<br>
+        <span class="label">Student No.:</span> 02-2324-02784<br>
+        <span class="label">Address:</span> —<br>
+    </div>
+
+    <div class="section">
+        <span class="label">THE SUM OF:</span> FOUR THOUSAND PESOS
+    </div>
+
+    <div class="line"></div>
+
+    <div class="section">
+        <span class="label">Description:</span> 1st Periodic
+        <span style="float:right;">1,000,000.00</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="section">
+        <span class="label">Total:</span>
+        <span style="float:right;">1,000,000.00</span>
+    </div>
+
+    <div class="section">
+        <span class="label">Issued by:</span> dpbalambao<br>
+        <span class="label">Date Printed:</span> 09/18/2023<br>
+        <span class="label">O.R. No.:</span> 1554163
+    </div>
+
+    <div class="center section">
+        <div class="big-red">
+            <span style="color:black;">CUSTOMER COPY</span>&nbsp;&nbsp;
+            <span style="color:red; font-size:16px;">NO.</span>
+            <span style="color:red; font-size:28px; font-weight:bold; letter-spacing:3px;">1554163</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <span class="label">Permit No.</span> CAS-1014-0003-000<br><br>
+
+        <div style="font-size: 10px;">
+            1000 Pads (100x2) 1,515,001 - 1,615,000<br>
+            BIR Authority to Print No. 098AU202300000002082<br>
+            Date Issued: 03-16-23<br>
+            Legacy Sales & Printing Press, Inc.<br>
+            A. Luna Extn. CDO, TIN 003-053-883-000 VAT
+        </div>
+
+        <div style="font-size: 10px; float: right; margin-top: -80px;">
+            <span class="label">Printer’s Accreditation No.:</span><br>
+            098MP20190000000008<br>
+            Date Issued 03/18/19
+        </div>
+    </div>
+
+    <div class="footer-text">
+        “THIS DOCUMENT IS NOT VALID FOR CLAIMING INPUT TAXES”
+    </div>
+
+</div>
+
+<!-- html2pdf library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+document.getElementById("download").addEventListener("click", () => {
+    const element = document.querySelector(".receipt");
+    html2pdf()
+        .set({ margin: 10, filename: 'official_receipt.pdf', html2canvas: { scale: 2 } })
+        .from(element)
+        .save();
+});
+</script>
+
+</body>
+</html>
