@@ -5,11 +5,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            width: 450px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #000;
-            position: relative;
+            margin: 0;
+            padding: 0;
         }
 
         .buttons {
@@ -28,9 +25,13 @@
 
         .receipt {
             position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            border: 1px solid #000;
+            box-sizing: border-box;
             z-index: 1;
-            padding-top: 40px;
-            padding-bottom: 40px;
         }
 
         .background-logo {
@@ -38,8 +39,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 400px; /* bigger logo */
-            opacity: 0.20; /* faint watermark */
+            width: 90%;
+            opacity: 0.08;
             z-index: 0;
         }
 
@@ -89,19 +90,31 @@
             z-index: 1;
         }
 
+        /* Print-specific styles */
         @media print {
             body {
                 width: auto;
                 margin: 0;
                 padding: 0;
-                border: none;
             }
+
             .receipt {
-                border: none;
                 width: 100%;
+                max-width: none;
+                height: 100vh;
+                margin: 0;
+                padding: 40px;
+                border: none;
+                box-sizing: border-box;
             }
+
+            .background-logo {
+                width: 80%;
+                opacity: 0.05;
+            }
+
             .buttons {
-                display: none; /* hide buttons in print */
+                display: none;
             }
         }
     </style>
@@ -128,7 +141,7 @@
     </div>
 
     <div class="section">
-        <span class="label">Date:</span> September 18, 2023<br>
+        <span class="label">Date:</span> September 18, 2025<br>
         <span class="label">Name:</span> OLEMBERIO, KIANA L.<br>
         <span class="label">Course:</span> BSIT<br>
         <span class="label">Student No.:</span> 02-2324-02784<br>
@@ -136,15 +149,32 @@
     </div>
 
     <div class="section">
-        <span class="label">THE SUM OF:</span> FOUR THOUSAND PESOS
+        <span class="label">THE SUM OF:</span> One Million US Dollars Only<br>
     </div>
 
     <div class="line"></div>
 
-    <div class="section">
-        <span class="label">Description:</span> 1st Periodic
-        <span style="float:right;">1,000,000.00</span>
+<div class="section">
+    <div class="description" style="font-size: 11px; line-height: 1.4;">
+        <span class="label">Description:</span><br>
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                INFORMATION ASSURANCE AND SECURITY 2 (IA&S2)<br>
+                PLATFORM TECHNOLOGIES<br>
+                CLOUD PROGRAMMING<br>
+                GAME DEVELOPMENT
+            </div>
+            <div style="text-align: right;">
+                1,000,000.00 <br>
+                1,000,000.00 <br>
+                1,000,000.00 <br>
+                1,000,000.00
+            </div>
+            
+        </div>
     </div>
+</div>
+
 
     <div class="line"></div>
 
@@ -155,7 +185,7 @@
 
     <div class="section">
         <span class="label">Issued by:</span> dpbalambao<br>
-        <span class="label">Date Printed:</span> 09/18/2023<br>
+        <span class="label">Date Printed:</span> 09/18/2025<br>
         <span class="label">O.R. No.:</span> 1554163
     </div>
 
@@ -173,7 +203,7 @@
         <div style="font-size: 10px;">
             1000 Pads (100x2) 1,515,001 - 1,615,000<br>
             BIR Authority to Print No. 098AU202300000002082<br>
-            Date Issued: 03-16-23<br>
+            Date Issued: 03-16-25<br>
             Legacy Sales & Printing Press, Inc.<br>
             A. Luna Extn. CDO, TIN 003-053-883-000 VAT
         </div>
